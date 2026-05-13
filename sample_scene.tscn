@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbyrticosbwf8"]
+
+[ext_resource type="Script" uid="uid://4gru1lgveyhv" path="res://test.gd" id="1_t0n1d"]
+[ext_resource type="Script" uid="uid://bkskaud310be8" path="res://my_sprite.gd" id="2_4g1gs"]
+
+[node name="SampleScene" type="Node2D" unique_id=1157338969]
+script = ExtResource("1_t0n1d")
+
+[node name="Test1" type="Node2D" parent="." unique_id=1795700661]
+
+[node name="TestSprite1" type="Sprite2D" parent="." unique_id=1583218708]
+script = ExtResource("2_4g1gs")
+
+[node name="TestSprite2" type="Sprite2D" parent="." unique_id=1664883912]
+
+[node name="SomeParent" type="Node2D" parent="." unique_id=1596139010]
+
+[node name="TestSprite3" type="Sprite2D" parent="SomeParent" unique_id=159924160]
+
+[node name="OtherParent" type="Node2D" parent="SomeParent" unique_id=1470735634]
+
+[node name="TestSprite4" type="Sprite2D" parent="SomeParent/OtherParent" unique_id=1891359709]
+script = ExtResource("2_4g1gs")
