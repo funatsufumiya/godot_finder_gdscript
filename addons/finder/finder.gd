@@ -36,6 +36,8 @@ func is_node_of_class(node: Node, class_string: String) -> bool:
 	if node.get_script():
 		if node.get_script().get_global_name() == class_string:
 			is_instance = true
+		elif node.get_script().get_instance_base_type() == class_string:
+			is_instance = true
 	if node.is_class(class_string): # Keep this check in for built-in classes
 		is_instance = true
 	return is_instance
@@ -78,5 +80,43 @@ func find_parent_by_name(node: Node, name: String):
 	while(parent != null):
 		if parent.name == name:
 			return parent
-		parent = node.get_parent()
+		parent = parent.get_parent()
 	return null
+	
+func find_parent_by_type(node: Node, typename: String):
+	if node == null:
+		push_warning("find_parent_by_name: node is null")
+		return null
+	
+	var parent = node.get_parent()
+	while(parent != null):
+		if is_node_of_class(parent, typename):
+			return parent
+		parent = parent.get_parent()
+	return null
+	
+func find_parents_by_name(node: Node, name: String):
+	if node == null:
+		push_warning("find_parent_by_name: node is null")
+		return null
+	
+	var parent = node.get_parent()
+	var res = []
+	while(parent != null):
+		if parent.name == name:
+			res.append(parent)
+		parent = parent.get_parent()
+	return res
+	
+func find_parents_by_type(node: Node, typename: String):
+	if node == null:
+		push_warning("find_parent_by_name: node is null")
+		return null
+	
+	var parent = node.get_parent()
+	var res = []
+	while(parent != null):
+		if is_node_of_class(parent, typename):
+			res.append(parent)
+		parent = parent.get_parent()
+	return res
