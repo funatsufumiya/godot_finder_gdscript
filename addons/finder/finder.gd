@@ -68,3 +68,15 @@ func find_children_by_type(root: Node, typename: String):
 			for gp in gps:
 				res.append(gp)
 	return res
+
+func find_parent_by_name(node: Node, name: String):
+	if node == null:
+		push_warning("find_parent_by_name: node is null")
+		return null
+	
+	var parent = node.get_parent()
+	while(parent != null):
+		if parent.name == name:
+			return parent
+		parent = node.get_parent()
+	return null
