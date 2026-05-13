@@ -16,6 +16,21 @@ func find_child_by_name(root: Node, name: String):
 			return gp
 	return null
 	
+func find_children_by_name(root: Node, name: String):
+	if root == null:
+		push_warning("find_children_by_name: parent is null")
+		return null
+	
+	var res = []
+	for p in root.get_children():
+		if p.name == name:
+			res.append(p)
+		if p.get_child_count() > 0:
+			var gps = find_child_by_name(p, name)
+			for gp in gps:
+				res.append(gp)
+	return res
+	
 func is_node_of_class(node: Node, class_string: String) -> bool:
 	var is_instance := false
 	if node.get_script():
