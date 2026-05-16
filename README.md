@@ -4,7 +4,7 @@ Node finder addon for Godot 4.2.2 - 4.4
 
 This is gdscript version of [godot_finder](https://github.com/funatsufumiya/godot_finder).
 
-(If your target platform can use gdextension, [godot_finder](https://github.com/funatsufumiya/godot_finder) would be much faster.)
+(If your target platform can use GDExtension, [godot_finder](https://github.com/funatsufumiya/godot_finder) which implemented in C++ would be much faster.)
 
 ## Usage
 
